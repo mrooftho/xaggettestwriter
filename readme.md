@@ -1,2 +1,3 @@
 Another greath MiRo tool
-See /Doc area for some info :-)
+<br>
+See /Doc area for auto-generated docs
