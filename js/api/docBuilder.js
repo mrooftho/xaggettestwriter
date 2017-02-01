@@ -8,16 +8,17 @@ function docBuilder(){
     }
 
     function generateStateDocumentation(states){
+        //log
         return new Promise(function (resolve, reject){
-            let strStates = '<h1>Configured states</h1>\n';
+            let strStates = '<h1>Configured states</h1>';
             for (var p in states){
                 if (states.hasOwnProperty(p)) {
-                    strStates = strStates + '<h2>' + p + '</h2>\n';
-                    strStates = strStates + states[p].name + ': ' + states[p].description + '\n';
-                    strStates = strStates + '<h3>Sub-filters</h3>\n';
+                    strStates = strStates + '<h2>' + p + '</h2>';
+                    strStates = strStates + states[p].name + ': ' + states[p].description + '<br>';
+                    strStates = strStates + '<h3>Sub-filters</h3>';
                     for (var s in states[p].states){
                         if (states[p].states.hasOwnProperty(s)){
-                            strStates = strStates + s + ': ' + states[p].states[s].description + '\n';
+                            strStates = strStates + s + ': ' + states[p].states[s].description + '<br>';
                         }
                     }
                 }
@@ -34,13 +35,13 @@ function docBuilder(){
     }
     function generateActionDocumentation(actions){
         return new Promise(function (resolve, reject){
-            let strActions = '<h1>Configured actions</h1>\n';
+            let strActions = '<h1>Configured actions</h1>';
             for (var p in actions){
                 if (actions.hasOwnProperty(p)) {
-                    strActions = strActions + '<h2>' + p + '</h2>\n';
+                    strActions = strActions + '<h2>' + p + '</h2>';
                     for (var s in actions[p]){
                         if (actions[p].hasOwnProperty(s) && s != 'name'){
-                            strActions = strActions + s + ': ' + actions[p][s].when + '\n';
+                            strActions = strActions + s + ': ' + actions[p][s].when + '<br>';
                         }
                     }
                 }
