@@ -1,0 +1,200 @@
+{
+  "repo": "Soft zapping",
+  "info": "",
+  "testlist": [
+    {
+      "name": "Soft zapping: Cyclic behaviour (last to first)",
+      "weight": 20,
+      "description": "Given the channelbar is open AND on the last channelNWhen pressing arrow downNThen the channelbar is open AND on the first channel",
+      "tags": [
+        "softzapping",
+        "channelbar"
+      ],
+      "metadata": {
+        "author": "mrooftho",
+        "story": "jira-001",
+        "bug": "",
+        "sourceScreen": "the channelbar",
+        "targetScreen": "the channelbar",
+        "buttons": "",
+        "testStepType": ""
+      },
+      "loadstate": [
+        "channelInfo"
+      ],
+      "requirements": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.channelnumber',check:{read: initialState.channelInfo.channelLineUp.lastChannel.channelNumber}}])"
+      ],
+      "actions": [
+        "pressButton('ArrowDown',3000)"
+      ],
+      "checks": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.channelnumber',check:{read: currentState.channelInfo.channelLineUp.firstChannel.channelNumber}}])"
+      ]
+    },
+    {
+      "name": "Soft zapping: Cyclic behaviour (first to last)",
+      "weight": 10,
+      "description": "Given the channelbar is open AND on the first channelNWhen pressing arrow upNThen the channelbar is open AND on the last channel",
+      "tags": [
+        "softzapping",
+        "channelbar"
+      ],
+      "metadata": {
+        "author": "mrooftho",
+        "story": "jira-001",
+        "bug": "",
+        "sourceScreen": "the channelbar",
+        "targetScreen": "the channelbar",
+        "buttons": "",
+        "testStepType": ""
+      },
+      "loadstate": [
+        "channelInfo"
+      ],
+      "requirements": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.channelnumber',check:{read: initialState.channelInfo.channelLineUp.firstChannel.channelNumber}}])"
+      ],
+      "actions": [
+        "pressButton('ArrowUp',3000)"
+      ],
+      "checks": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.channelnumber',check:{read: currentState.channelInfo.channelLineUp.lastChannel.channelNumber}}])"
+      ]
+    },
+    {
+      "name": "Soft zapping: Down from current event shows next channel",
+      "weight": 10,
+      "description": "Given the channelbar is open AND on the live linear eventNWhen pressing arrow downNThen the channelbar is open AND on the next channels current event AND is showing now icon",
+      "tags": [
+        "softzapping",
+        "channelbar"
+      ],
+      "metadata": {
+        "author": "mrooftho",
+        "story": "jira-001",
+        "bug": "",
+        "sourceScreen": "the channelbar",
+        "targetScreen": "the channelbar",
+        "buttons": "",
+        "testStepType": ""
+      },
+      "loadstate": [
+        "channelInfo"
+      ],
+      "requirements": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.currentevent.title',check:{read: initialState.channelInfo.currentTunedChannel.currentEvent.title}}])"
+      ],
+      "actions": [
+        "pressButton('ArrowDown',3000)"
+      ],
+      "checks": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.currentevent.title',check:{read: currentState.channelInfo.nextChannel.currentEvent.title}}])",
+        "readUI([{item:'channelbar.currentevent.now',check:{read: 'NOW'}}])"
+      ]
+    },
+    {
+      "name": "Soft zapping: Up from current event shows next channel",
+      "weight": 10,
+      "description": "Given the channelbar is open AND on the live linear eventNWhen pressing arrow upNThen the channelbar is open AND on the previous channels current event AND is showing now icon",
+      "tags": [
+        "softzapping",
+        "channelbar"
+      ],
+      "metadata": {
+        "author": "mrooftho",
+        "story": "jira-001",
+        "bug": "",
+        "sourceScreen": "the channelbar",
+        "targetScreen": "the channelbar",
+        "buttons": "",
+        "testStepType": ""
+      },
+      "loadstate": [
+        "channelInfo"
+      ],
+      "requirements": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.currentevent.title',check:{read: initialState.channelInfo.currentTunedChannel.currentEvent.title}}])"
+      ],
+      "actions": [
+        "pressButton('ArrowUp',3000)"
+      ],
+      "checks": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.currentevent.title',check:{read: currentState.channelInfo.previousChannel.currentEvent.title}}])",
+        "readUI([{item:'channelbar.currentevent.now',check:{read: 'NOW'}}])"
+      ]
+    },
+    {
+      "name": "Soft zapping: Down from live shows next channel info",
+      "weight": 10,
+      "description": "Given the player on linear tvNWhen pressing arrow downNThen the channelbar is open AND on the next channels current event AND is showing now icon",
+      "tags": [
+        "softzapping",
+        "channelbar"
+      ],
+      "metadata": {
+        "author": "mrooftho",
+        "story": "jira-001",
+        "bug": "",
+        "sourceScreen": "the player",
+        "targetScreen": "the channelbar",
+        "buttons": "",
+        "testStepType": ""
+      },
+      "loadstate": [
+        "channelInfo"
+      ],
+      "requirements": [
+        "readUI([{item:'header.title',check:{read:'NO UI'}}])"
+      ],
+      "actions": [
+        "pressButton('ArrowDown',3000)"
+      ],
+      "checks": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.currentevent.title',check:{read: currentState.channelInfo.nextChannel.currentEvent.title}}])",
+        "readUI([{item:'channelbar.currentevent.now',check:{read: 'NOW'}}])"
+      ]
+    },
+    {
+      "name": "Soft zapping: Up from live shows next channel info",
+      "weight": 10,
+      "description": "Given the player on linear tvNWhen pressing arrow upNThen the channelbar is open AND on the previous channels current event AND is showing now icon",
+      "tags": [
+        "softzapping",
+        "channelbar"
+      ],
+      "metadata": {
+        "author": "mrooftho",
+        "story": "jira-001",
+        "bug": "",
+        "sourceScreen": "the player",
+        "targetScreen": "the channelbar",
+        "buttons": "",
+        "testStepType": ""
+      },
+      "loadstate": [
+        "channelInfo"
+      ],
+      "requirements": [
+        "readUI([{item:'header.title',check:{read:'NO UI'}}])"
+      ],
+      "actions": [
+        "pressButton('ArrowUp',3000)"
+      ],
+      "checks": [
+        "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])",
+        "readUI([{item:'channelbar.currentevent.title',check:{read: currentState.channelInfo.previousChannel.currentEvent.title}}])",
+        "readUI([{item:'channelbar.currentevent.now',check:{read: 'NOW'}}])"
+      ]
+    }
+  ]
+}

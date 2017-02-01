@@ -1,0 +1,12 @@
+{
+    "name": "player",
+    "description": "the player",
+    "states": {
+        "linear": {
+            "description": "on linear tv",
+            "criteria": [
+                "readUI([{item:'header.title',check:{read:'NO UI'}}])"
+            ]
+        }
+    }
+}

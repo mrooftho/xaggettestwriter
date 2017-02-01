@@ -1,0 +1,15 @@
+{
+    "name": "remote",
+    "arrowDownInApp": {
+        "when": "pressing arrow down",
+        "actions":[
+            "pressButton('ArrowDown',3000)"
+        ]
+    },
+    "arrowUpInApp": {
+        "when": "pressing arrow up",
+        "actions":[
+            "pressButton('ArrowUp',3000)"
+        ]
+    }
+}

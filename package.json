@@ -1,0 +1,19 @@
+{
+  "name": "xaggettestwriter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./js/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./js/index.js"
+  },
+  "author": "miro",
+  "license": "ISC",
+  "dependencies": {
+    "jsonfile": "^2.4.0",
+    "require-dir": "^0.3.1"
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "name": "channelbar",
+    "description": "the channelbar",
+    "states": {
+        "open": {
+            "description": "is open",
+            "criteria": [
+                "readUI([{item:'header.title',check:{read:'CHANNELBAR'}}])"            
+            ]
+        },
+        "onlastchannel": {
+            "description": "on the last channel",
+            "criteria": [
+                "readUI([{item:'channelbar.channelnumber',check:{read: state.channelInfo.channelLineUp.lastChannel.channelNumber}}])"            
+            ]
+        },
+        "onfirstchannel": {
+            "description": "on the first channel",
+            "criteria": [
+                "readUI([{item:'channelbar.channelnumber',check:{read: state.channelInfo.channelLineUp.firstChannel.channelNumber}}])"            
+            ]
+        },
+        "ontunedevent": {
+            "description": "on the live linear event",
+            "criteria": [
+                "readUI([{item:'channelbar.currentevent.title',check:{read: state.channelInfo.currentTunedChannel.currentEvent.title}}])"           
+            ]
+        },
+        "nowindicator": {
+            "description": "is showing now icon",
+            "criteria": [
+                "readUI([{item:'channelbar.currentevent.now',check:{read: 'NOW'}}])"
+            ]
+        },
+        "nextchannelcurrentevent": {
+            "description": "on the next channels current event",
+            "criteria": [
+                "readUI([{item:'channelbar.currentevent.title',check:{read: state.channelInfo.nextChannel.currentEvent.title}}])"                
+            ]
+        },
+        "previouschannelcurrentevent": {
+            "description": "on the previous channels current event",
+            "criteria": [
+                "readUI([{item:'channelbar.currentevent.title',check:{read: state.channelInfo.previousChannel.currentEvent.title}}])"
+            ]
+        }
+    }
+}

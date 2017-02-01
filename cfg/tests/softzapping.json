@@ -1,0 +1,47 @@
+{
+    "name": "Soft zapping",
+    "reference": "jira-001",
+    "tags": ["softzapping","channelbar"],
+    "bug": "",
+    "weight": 10,
+    "teststeps": [
+        {
+            "name": "Cyclic behaviour (last to first)",
+            "given": "channelbar.open.onlastchannel",
+            "when": "remote.arrowDownInApp",
+            "then": "channelbar.open.onfirstchannel",
+            "bug": "",
+            "weight": 20
+        },
+        {
+            "name": "Cyclic behaviour (first to last)",
+            "given": "channelbar.open.onfirstchannel",
+            "when": "remote.arrowUpInApp",
+            "then": "channelbar.open.onlastchannel"
+        },
+        {
+            "name": "Down from current event shows next channel",
+            "given": "channelbar.open.ontunedevent",
+            "when": "remote.arrowDownInApp",
+            "then": "channelbar.open.nextchannelcurrentevent.nowindicator"
+        },
+        {
+            "name": "Up from current event shows next channel",
+            "given": "channelbar.open.ontunedevent",
+            "when": "remote.arrowUpInApp",
+            "then": "channelbar.open.previouschannelcurrentevent.nowindicator"
+        },
+        {
+            "name": "Down from live shows next channel info",
+            "given": "player.linear",
+            "when": "remote.arrowDownInApp",
+            "then": "channelbar.open.nextchannelcurrentevent.nowindicator"
+        },
+        {
+            "name": "Up from live shows next channel info",
+            "given": "player.linear",
+            "when": "remote.arrowUpInApp",
+            "then": "channelbar.open.previouschannelcurrentevent.nowindicator"
+        }
+    ]
+} 
