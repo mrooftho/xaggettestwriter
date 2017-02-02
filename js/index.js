@@ -4,7 +4,7 @@ const strBuilder = require('./api/stringBuilder');
 const appFs = require('./api/appFolder');
 const xaggetBuilder = require('./api/xaggetBuilder');
 const docBuilder = require('./api/docBuilder');
-const jsonfile = require('jsonfile')
+const jsonfile = require('jsonfile');
 //clean xagget folder
 appFs().cleanUp().then(function(){
     //load actions
